@@ -23,6 +23,7 @@ sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
+	maven { url "http://ena-dev:8081/artifactory/all" }
 }
 
 
@@ -30,7 +31,14 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
 	compile('org.springframework.data:spring-data-rest-hal-browser')
 	compile('org.springframework.boot:spring-boot-starter-hateoas')
+	
+	// added for security test
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('uk.ac.ebi.tsc.aap.client:aap-client-java:0.1-SNAPSHOT')
+
 	compileOnly('org.projectlombok:lombok')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
+	testCompile("org.springframework.security:spring-security-test")
 }
